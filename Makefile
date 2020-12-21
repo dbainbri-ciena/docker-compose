@@ -3,10 +3,10 @@ DOCKER_IMAGE ?= docker-compose## Docker image name (default docker-compose)
 DOCKER_COMPOSE_VERSION ?= 1.27.4## Docker compose version (default: 1.27.4)
 DOCKER_TAG ?= $(DOCKER_COMPOSE_VERSION)## Docker image tag (default: $DOCKER_COMPOSE_VERSION)
 
-HELP_STYLE_OFF?=$$(tput sgr0)
-HELP_STYLE_TITLE?=$$(tput bold)
-HELP_STYLE_TARGET?=$$(tput setaf 6)
-HELP_STYLE_CONFIG?=$$(tput setaf 2)
+HELP_STYLE_OFF?=$$(tput sgr0 2>/dev/null)
+HELP_STYLE_TITLE?=$$(tput bold 2>/dev/null)
+HELP_STYLE_TARGET?=$$(tput setaf 6 2>/dev/null)
+HELP_STYLE_CONFIG?=$$(tput setaf 2 2>/dev/null)
 
 help: ## display the help message
 	@echo "$(HELP_STYLE_TITLE)TARGETS:$(HELP_STYLE_OFF)"
