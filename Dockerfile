@@ -16,8 +16,8 @@ ARG BASE_IMAGE=alpine:3.12
 FROM $BASE_IMAGE
 ARG VERSION=latest
 RUN apk add --no-cache --update --virtual .build-deps \
-        build-base musl-dev libffi-dev openssl-dev \
-        python3 python3-dev py3-pip && \
-        pip3 install --no-cache-dir docker-compose==$VERSION && \
-        apk del .build-deps
+        build-base musl-dev libffi-dev openssl-dev && \
+    apk add --no-cache python3 python3-dev py3-pip && \
+    pip3 install --no-cache-dir requests docker-compose==$VERSION && \
+    apk del .build-deps
 WORKDIR /work
